@@ -1,6 +1,6 @@
 //go:build gofuzz
 
-package main
+package testify
 
 import fuzz "github.com/google/gofuzz"
 

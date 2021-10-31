@@ -1,4 +1,4 @@
-package main
+package testify
 
 import "fmt"
 
@@ -7,5 +7,8 @@ func main() {
 }
 
 func f(num int) float32 {
+	if num == 1 {
+		panic("")
+	}
 	return float32(1) / float32(num-5)
 }
