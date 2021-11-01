@@ -1,15 +1,12 @@
 package testify
 
 import (
-	"fmt"
-	"math"
 	"testing"
 
-	fuzz "github.com/google/gofuzz"
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_f(t *testing.T) {
+func Test_F(t *testing.T) {
 	assert := assert.New(t)
 	type args struct {
 		num int
@@ -33,23 +30,15 @@ func Test_f(t *testing.T) {
 		{
 			name: "5",
 			args: args{num: 5},
-			want: float32(math.Inf(1)),
+			// want: float32(math.Inf(1)),
+			want: 0,
 		},
 	}
 
 	for _, tt := range tests {
-		assert.Equal(f(tt.args.num),
+		result, _ := F(tt.args.num)
+		assert.Equal(result,
 			tt.want,
 			"they should be equal")
-	}
-}
-
-func Test_fuzz(t *testing.T) {
-	fu := fuzz.New()
-	for i := 0; i < 100000; i++ {
-		var i int
-		fu.Fuzz(&i)
-		result := f(i)
-		fmt.Printf("result(i): %v", result)
 	}
 }

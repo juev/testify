@@ -1,2 +1,3 @@
 testify-fuzz.zip
-corpus
+crashers
+suppressions
